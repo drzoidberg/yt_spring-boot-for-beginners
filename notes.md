@@ -80,8 +80,17 @@ its goal is to add all of the functionality exposed by the persistence layer and
 - this means that we can write out code independntly of how the objects are created, and that we can also swap the implementation of the objects without affecting the rest of the application
 - for me to use DI, I need to first understand and create the interfaces, that is, what will be needed to be implemented, and then the concrete classes that implement those interfaces
 
-## introducing beans
+## way of declaring beans
+### using a config file
 - so writing interfaces instead of classes is the way to do things in spring
 - we should leave the framework to supply the concrete classes wherever we declare the interfaces via dependency injection
 - those classes are called "beans"
 - In essence, a Bean is an object that combines both configuration and functionality, and it is managed by the framework to promote modularity, loose coupling, and easier maintenance in your Java application. It's not solely a piece of configuration or a concrete implementation; it's a managed component that serves a specific purpose in your application.
+
+### using components (and friends)
+#### @Component annotation
+- you'd only had to remove the current file and add the @Component annotation to the classes you'd want to be beans
+
+#### @Service annotation
+- this annotation is a specialization of the @Component annotation, and it's used to annotate classes that perform service tasks, often you'd use this annotation in the service layer
+- it does essentially the same as a component, but it's more specific and descriptive
