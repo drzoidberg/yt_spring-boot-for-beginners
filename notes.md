@@ -82,6 +82,7 @@ its goal is to add all of the functionality exposed by the persistence layer and
 
 ## way of declaring beans
 ### using a config file
+- the config file will be a java class that will contain the beans that we want to use in our application
 - so writing interfaces instead of classes is the way to do things in spring
 - we should leave the framework to supply the concrete classes wherever we declare the interfaces via dependency injection
 - those classes are called "beans"
