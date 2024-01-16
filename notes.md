@@ -74,7 +74,14 @@ its goal is to add all of the functionality exposed by the persistence layer and
 - the goal of this layer is to use the data and functionality exposed by the service layer to meet the requirements of the application and expose them to the user, normally using a REST API, a graphql api, a websocket api, etc
   - this is achieved by using controllers as an implementation of that
 
+## inversion of control & dependency injection
+- IoC is a design software term that refers to a proces to deferring resposibility for the creation of objects to some other agent. In this case, the framework
+- For this, dependency injection is the technique that is used to achieve inversion of control. In DI, required dependencies are injected into the object, instead of that same object creating them itself internally.
+- this means that we can write out code independntly of how the objects are created, and that we can also swap the implementation of the objects without affecting the rest of the application
+- for me to use DI, I need to first understand and create the interfaces, that is, what will be needed to be implemented, and then the concrete classes that implement those interfaces
+
 ## introducing beans
 - so writing interfaces instead of classes is the way to do things in spring
 - we should leave the framework to supply the concrete classes wherever we declare the interfaces via dependency injection
 - those classes are called "beans"
+- In essence, a Bean is an object that combines both configuration and functionality, and it is managed by the framework to promote modularity, loose coupling, and easier maintenance in your Java application. It's not solely a piece of configuration or a concrete implementation; it's a managed component that serves a specific purpose in your application.
