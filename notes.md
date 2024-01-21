@@ -95,3 +95,8 @@ its goal is to add all of the functionality exposed by the persistence layer and
 #### @Service annotation
 - this annotation is a specialization of the @Component annotation, and it's used to annotate classes that perform service tasks, often you'd use this annotation in the service layer
 - it does essentially the same as a component, but it's more specific and descriptive
+
+##### WHAT I'VE DONE FOR NOW
+- I've created the project with its initial state, which was a simple hello world that was somewhat coupled. So, my main goal is to decouple it.
+- Instead of creating the instance in the controller, I've created a service layer, and I've created an interface for it, and a concrete class that implements it. I've also created a bean for the service layer, and I've injected it in the controller.
+- I left one of the services as a bean, and the others one as a component, just to see the difference between them
