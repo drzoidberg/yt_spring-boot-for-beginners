@@ -102,3 +102,10 @@ its goal is to add all of the functionality exposed by the persistence layer and
 - I left one of the services as a bean, and the others one as a component, just to see the difference between them
 - Keep in mind that if you use the @Component/@Service annotation, no this specific case, you need to trace the interface in the controller, and not the concrete class, because the interface is the one that is being injected, and not the concrete class.
 - That will reveal you the components the interface needs to be implemented by. Those will be the ones that will be annotated with @Component/@Service, and if there are more than one annotated with @Component/@Service at compilation time, you'll get an error, because the framework won't know which one to inject.
+
+### Component scanning
+- This is a way to tell spring to look for beans in a specific package, and for those beans are needed.
+- For the EnglishRedPrinter, the framework asks if this bean need any dependency, that is a bean annotated with @Component/@Service. we did this before by declaring them in our constructor
+- So, the component scanning phase will create an instance of all declared classes and place them as beans in the application context, which is a container that holds all the beans that are created in the application
+- this beans then will be able to be plucked out and placed when and where needed
+- so! having said all of this, this process is also called **DEPENDENCY INJECTION**, or **AUTO-WIRING**, which a is more Spring specific term
