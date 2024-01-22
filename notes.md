@@ -5,9 +5,9 @@
 - application.properties is the place where you could configure the app
 
 ## Maven
-- it's a tool that helps programmers manage their projects and all the things they need to build their programs 
+- it's a tool that helps programmers manage their projects and all the things they need to build their programs
 - maven manage dependencies, builds & runs the project and runs the tests
-- "mvnw" stands for "maven wrapper", and it's a script that is used to invoke Apache Maven for a specific project without needing to install Maven globally on your system. 
+- "mvnw" stands for "maven wrapper", and it's a script that is used to invoke Apache Maven for a specific project without needing to install Maven globally on your system.
 
 ### diving intomaven
 > mvnw [options] [<goal(s)>] [<phases(s)>]
@@ -27,11 +27,11 @@
   - default this is the most useful goals live
   - site is where the docs are generated
 
-#### diving maven clean 
+#### diving maven clean
 > mvnw clean
 >   pre-clean -> executed when we want to hook some action before cleaning
 >   clean -> does the actual cleaning
->   post-clean -> executed when we want to hook some action after cleaning 
+>   post-clean -> executed when we want to hook some action after cleaning
 
 #### diving maven [default]
 > mvnw [default]
@@ -40,7 +40,7 @@
 >   package -> creates a jar or war file
 >   verify -> runs checks & integration tests
 
-- keep in mind that this command will happen in an orderly fashion. This means that if you want to run some integration tests, for example, first maven will run the compile, test & package commands  
+- keep in mind that this command will happen in an orderly fashion. This means that if you want to run some integration tests, for example, first maven will run the compile, test & package commands
 
 ## using maven project structure
 using maven implies using maven project structure
@@ -50,11 +50,11 @@ using maven implies using maven project structure
 - service
 - persistence
 
-### the persistence layer 
+### the persistence layer
 Is there to handle the interactions with our database, which are often thought of entities, at this level.
 - The entities are java objects that represent the tables in our database, or if we use a nosql db, the equivalent in those technologies
-- we use the entities in this level using one of different patterns, such as 
-  - DAO (data access object) 
+- we use the entities in this level using one of different patterns, such as
+  - DAO (data access object)
   - Repositories
 
 - the type of functionality that we can find in this layer is:
@@ -100,3 +100,5 @@ its goal is to add all of the functionality exposed by the persistence layer and
 - I've created the project with its initial state, which was a simple hello world that was somewhat coupled. So, my main goal is to decouple it.
 - Instead of creating the instance in the controller, I've created a service layer, and I've created an interface for it, and a concrete class that implements it. I've also created a bean for the service layer, and I've injected it in the controller.
 - I left one of the services as a bean, and the others one as a component, just to see the difference between them
+- Keep in mind that if you use the @Component/@Service annotation, no this specific case, you need to trace the interface in the controller, and not the concrete class, because the interface is the one that is being injected, and not the concrete class.
+- That will reveal you the components the interface needs to be implemented by. Those will be the ones that will be annotated with @Component/@Service, and if there are more than one annotated with @Component/@Service at compilation time, you'll get an error, because the framework won't know which one to inject.
