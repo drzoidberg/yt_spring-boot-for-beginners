@@ -109,3 +109,13 @@ its goal is to add all of the functionality exposed by the persistence layer and
 - So, the component scanning phase will create an instance of all declared classes and place them as beans in the application context, which is a container that holds all the beans that are created in the application
 - this beans then will be able to be plucked out and placed when and where needed
 - so! having said all of this, this process is also called **DEPENDENCY INJECTION**, or **AUTO-WIRING**, which a is more Spring specific term
+
+## @SprinBootApplication
+@SpringBootApplication is an alias for a number of different annotations, such as:
+### @Configuration
+This one identifies a configuration class that contains bean definitions
+### @ComponentScan
+This one tells Spring to look for other components, configurations, and services in the package and registering where and when they are needed
+### @EnableAutoConfiguration
+This one tells Spring to automatically configure the application based on the dependencies that are added to the project
+  
