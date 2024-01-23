@@ -138,4 +138,16 @@ This is another way to configure the application. Is most important to know beca
 - you can also put the env var in temp memory of that terminal using the 'export' command
 
 ### configuration properties
-- @ConfigurationProperties() is an annotation that allows us to bind all the properties that are prefixed with a specific value to a class. This, along the @Configuration annotation, allows us to create a configuration class that will be used to configure the application using the application.properties file 
+- @ConfigurationProperties() is an annotation that allows us to bind all the properties that are prefixed with a specific value to a class. This, along the @Configuration annotation, allows us to create a configuration class that will be used to configure the application using the application.properties file
+
+## database layers
+- database driver
+- the jdbc layer, the java database connectivity layer. here we would acces the database by using sql queries for example. This allows us to fine-grain and optimize our queries
+- so, spring jdbc builts on top of jdbc and provides a higher level of abstraction, and gives us the jdbc template, which is a class that allows us to interact with the database without having to write sql queries
+- then we have the jpa, the java persistence layer. This allows us to interact to the db by using java objects, and it's the most used layer
+- jpa handles the mapping between the java objects and the database tables, and it also allows us to use the object oriented features of java, such as inheritance, polymorphism, etc.
+- jpa is built on top of jdbc, so it uses jdbc to interact with the database, so hypothetically you could swap the db technology you use and not change a lot of your code
+- jpa is an interface, so we need to use a concrete implementation of it, such as hibernate, eclipselink, etc. it's a high level api
+- technically, jpa is a specification, and hibernate is an implementation of that specification
+- hibernate is an orm, an object relational mapper, which is a technique that allows us to map java objects to db instructions and viceversa
+- SO: db drivers is what you need to interact with a specific db, jdbc is how you connect to the db and how you interact with it using sql queries, jpa is a specification that allows us to interact with the db using java objects, and hibernate is an implementation of that specification
