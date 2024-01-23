@@ -103,19 +103,38 @@ its goal is to add all of the functionality exposed by the persistence layer and
 - Keep in mind that if you use the @Component/@Service annotation, no this specific case, you need to trace the interface in the controller, and not the concrete class, because the interface is the one that is being injected, and not the concrete class.
 - That will reveal you the components the interface needs to be implemented by. Those will be the ones that will be annotated with @Component/@Service, and if there are more than one annotated with @Component/@Service at compilation time, you'll get an error, because the framework won't know which one to inject.
 
-### Component scanning
+## configuring the application
+### component scanning
 - This is a way to tell spring to look for beans in a specific package, and for those beans are needed.
 - For the EnglishRedPrinter, the framework asks if this bean need any dependency, that is a bean annotated with @Component/@Service. we did this before by declaring them in our constructor
 - So, the component scanning phase will create an instance of all declared classes and place them as beans in the application context, which is a container that holds all the beans that are created in the application
 - this beans then will be able to be plucked out and placed when and where needed
 - so! having said all of this, this process is also called **DEPENDENCY INJECTION**, or **AUTO-WIRING**, which a is more Spring specific term
 
-## @SprinBootApplication
+### @SprinBootApplication
 @SpringBootApplication is an alias for a number of different annotations, such as:
-### @Configuration
+#### @Configuration
 This one identifies a configuration class that contains bean definitions
-### @ComponentScan
+#### @ComponentScan
 This one tells Spring to look for other components, configurations, and services in the package and registering where and when they are needed
-### @EnableAutoConfiguration
+#### @EnableAutoConfiguration
 This one tells Spring to automatically configure the application based on the dependencies that are added to the project
-  
+- Autoconfiguration is the process spring boot uses when the application starts up, that provide sensible defaults and creates all those dependencies.
+- Spring boot starters are a collections of dependencies that are grouped together to provide a specific set of functionality
+##### the application.properties file
+this file is used to configure the application, and it's located in the resources folders
+- we need to go to the **spring boot documentation** to see what properties are available for us to use
+- keep in mind that there are other ways to configure the application than using this file: 
+- we can use the command line
+- we can use environment variables
+- we can use system properties
+- a yaml file
+- we can apply config files also in tests. This come in handy for cases like for telling the tests to use a mocked database than the one used in production
+###### env variables
+This is another way to configure the application. Is most important to know becasue when you use the docker image, you'll need to use env variables to configure it.
+- as a geenral rule, the env variables are nemade the same as the application properties, but they are in uppercase and with underscores instead of the usual delimiter, which is a dot
+- this can be configured in intellij by creating a .env file or in the edit configurations panel, and selecting 'environment variables'
+- you can also put the env variable before the mavenwrapper command
+- you can also put the env var in temp memory of that terminal using the 'export' command
+
+### configuration properties
