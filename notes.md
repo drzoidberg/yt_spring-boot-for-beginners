@@ -138,3 +138,4 @@ This is another way to configure the application. Is most important to know beca
 - you can also put the env var in temp memory of that terminal using the 'export' command
 
 ### configuration properties
+- @ConfigurationProperties() is an annotation that allows us to bind all the properties that are prefixed with a specific value to a class. This, along the @Configuration annotation, allows us to create a configuration class that will be used to configure the application using the application.properties file 
