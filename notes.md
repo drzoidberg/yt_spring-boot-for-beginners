@@ -150,4 +150,16 @@ This is another way to configure the application. Is most important to know beca
 - jpa is an interface, so we need to use a concrete implementation of it, such as hibernate, eclipselink, etc. it's a high level api
 - technically, jpa is a specification, and hibernate is an implementation of that specification
 - hibernate is an orm, an object relational mapper, which is a technique that allows us to map java objects to db instructions and viceversa
+---
 - SO: db drivers is what you need to interact with a specific db, jdbc is how you connect to the db and how you interact with it using sql queries, jpa is a specification that allows us to interact with the db using java objects, and hibernate is an implementation of that specification
+
+## spring databases
+- in order to config the database, we need to add the dependencies to the pom.xml file
+- when you do this, you need also to configure the application.properties file
+- the properties are specified in the spring boot documentation
+- what the config option sql.init.mode=always does is that it will run the sql script every time the application starts. This, in production, is not a good idea, but it's useful for development
+- in order to configure a jdbc temp
+late, we need to create a bean for it, and then inject it in the repository
+- in order to interact with the database we need a DAO, a data access object, which is an object that provides an abstract interface to some type of database or other persistence mechanism
+
+## connect to a postgres database
